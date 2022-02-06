@@ -48,12 +48,22 @@ def UNET(shape):
 
         return M
 
+    
+
+
+
     Model  = model()
 
     return Model
     
 
-Model = UNET((256,256,1))
+def config(model,optim,loss):
+    model.compile(optimizer=optim,loss=loss,metrics=['accuracy'])
+# Model = UNET((256,256,1))
+
+def train(model,x_train,y_train,epoch):
+    model.fit(x_train,y_train,epochs=epoch)
+
 
 # model = Model_class.model()
 
